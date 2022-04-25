@@ -18,6 +18,7 @@ def foo(request, user):
     # secure code...
 
 
+
 # Pickles
 class RunBinSh(object):
     def __reduce__(self):
